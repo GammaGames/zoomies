@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[sub_resource type="CapsuleMesh" id=2]
+material = SubResource( 1 )
+radius = 0.03
+mid_height = 0.3
+radial_segments = 5
+rings = 1
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 0, 0, 0.18, 0, 0, 0.18, 0, 0, 0.18, 0, 0, 0.18, 0, 0, 0.18, 0, 0, 0.18, 0, -0.0212132, 0.171213, 0.020175, -0.00655524, 0.171213, 0.0124688, 0.0171618, 0.171213, -0.0124688, 0.0171618, 0.171213, -0.020175, -0.00655524, 0.171213, -5.19556e-18, -0.0212132, 0.171213, 0, -0.03, 0.15, 0.0285317, -0.00927051, 0.15, 0.0176336, 0.0242705, 0.15, -0.0176336, 0.0242705, 0.15, -0.0285317, -0.00927051, 0.15, -7.34764e-18, -0.03, 0.15, 0, -0.03, 0.15, 0.0285317, -0.00927051, 0.15, 0.0176336, 0.0242705, 0.15, -0.0176336, 0.0242705, 0.15, -0.0285317, -0.00927051, 0.15, -7.34764e-18, -0.03, 0.15, 0, -0.03, 0, 0.0285317, -0.00927051, 0, 0.0176336, 0.0242705, 0, -0.0176336, 0.0242705, 0, -0.0285317, -0.00927051, 0, -7.34764e-18, -0.03, 0, 0, -0.03, -0.15, 0.0285317, -0.00927051, -0.15, 0.0176336, 0.0242705, -0.15, -0.0176336, 0.0242705, -0.15, -0.0285317, -0.00927051, -0.15, -7.34764e-18, -0.03, -0.15, 0, -0.03, -0.15, 0.0285317, -0.00927051, -0.15, 0.0176336, 0.0242705, -0.15, -0.0176336, 0.0242705, -0.15, -0.0285317, -0.00927051, -0.15, -7.34764e-18, -0.03, -0.15, 0, -0.0212132, -0.171213, 0.020175, -0.00655524, -0.171213, 0.0124688, 0.0171618, -0.171213, -0.0124688, 0.0171618, -0.171213, -0.020175, -0.00655524, -0.171213, -5.19556e-18, -0.0212132, -0.171213, 0, -3.67382e-18, -0.18, 3.49401e-18, -1.13527e-18, -0.18, 2.15942e-18, 2.97218e-18, -0.18, -2.15942e-18, 2.97218e-18, -0.18, -3.49401e-18, -1.13527e-18, -0.18, -8.99796e-34, -3.67382e-18, -0.18 )
+
+[sub_resource type="CylinderMesh" id=4]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.25
+
+[node name="Link1" type="PinJoint"]
+nodes/node_b = NodePath("RigidBody")
+
+[node name="RigidBody" type="RigidBody" parent="."]
+mass = 0.05
+can_sleep = false
+angular_damp = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.15, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.15, 0 )
+shape = SubResource( 3 )
+
+[node name="End" type="Position3D" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody/End"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="RigidBody/End"]
+transform = Transform( -1.62921e-07, 1, -1.62921e-07, 0, -1.62921e-07, -1, -1, -1.62921e-07, 2.65431e-14, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
