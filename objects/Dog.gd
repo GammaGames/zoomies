@@ -9,9 +9,16 @@ var left_impulse = false
 onready var left_timer = $LeftTimer
 var right_impulse = false
 onready var right_timer = $RightTimer
+onready var area = $Area
 
 func _ready():
 	stuck_timer.connect("timeout", self, "_timeout")
+	area.connect("area_entered", self, "_area_entered")
+
+
+func _area_entered(a):
+	if a.has_method("good"):
+		a.good()
 
 
 func _timeout():

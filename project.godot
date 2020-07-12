@@ -24,16 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/scatter/src/distributions/distribution_unique.gd"
 }, {
-"base": "ResourceFormatLoader",
-"class": "HTerrainDataLoader",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
-}, {
-"base": "ResourceFormatSaver",
-"class": "HTerrainDataSaver",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
-}, {
 "base": "Spatial",
 "class": "PolygonPath",
 "language": "GDScript",
@@ -138,8 +128,6 @@ _global_script_class_icons={
 "DistributionGrid": "",
 "DistributionUniform": "",
 "DistributionUnique": "",
-"HTerrainDataLoader": "",
-"HTerrainDataSaver": "",
 "PolygonPath": "",
 "PolygonPathDragInfo": "",
 "ProfileJitterSimple": "",
@@ -165,12 +153,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Zoomies"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "polygon_path", "scatter", "zylann.hterrain" )
+enabled=PoolStringArray( "polygon_path", "scatter" )
 
 [input]
 

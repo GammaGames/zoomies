@@ -44,55 +44,55 @@ var _parent
 ## --
 
 func get_class():
-	return "ScatterItem"
+    return "ScatterItem"
 
 func get_exclusion_areas():
-	var result = _parent.get_exclusion_areas()
-	for c in get_children():
-		if c.get_class() == "ScatterExclude":
-			result.append(c)
-	return result
+    var result = _parent.get_exclusion_areas()
+    for c in get_children():
+        if c.get_class() == "ScatterExclude":
+            result.append(c)
+    return result
 
 func update():
-	_parent = get_parent()
-	if _parent:
-		_parent.update()
+    _parent = get_parent()
+    if _parent:
+        _parent.update()
 
 ## --
 ## Internal methods
 ## --
 
 func _ready():
-	_parent = get_parent()
+    _parent = get_parent()
 
 func _set_proportion(val):
-	proportion = val
-	update()
+    proportion = val
+    update()
 
 func _set_path(val):
-	item_path = val
-	if not val:
-		return
+    item_path = val
+    if not val:
+        return
 
-	var instance = load(val).instance()
-	initial_position = instance.translation
-	initial_rotation = instance.rotation
-	initial_scale = instance.scale
-	instance.queue_free()
-	update()
+    var instance = load(val).instance()
+    initial_position = instance.translation
+    initial_rotation = instance.rotation
+    initial_scale = instance.scale
+    instance.queue_free()
+    update()
 
 func _set_scale_modifier(val):
-	scale_modifier = val
-	update()
+    scale_modifier = val
+    update()
 
 func _set_position_flag(val):
-	ignore_initial_position = val
-	update()
+    ignore_initial_position = val
+    update()
 
 func _set_rotation_flag(val):
-	ignore_initial_rotation = val
-	update()
+    ignore_initial_rotation = val
+    update()
 
 func _set_scale_flag(val):
-	ignore_initial_scale = val
-	update()
+    ignore_initial_scale = val
+    update()

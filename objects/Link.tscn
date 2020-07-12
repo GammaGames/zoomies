@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=13]
 albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
 
-[sub_resource type="CapsuleMesh" id=2]
-material = SubResource( 1 )
+[sub_resource type="CapsuleMesh" id=14]
+material = SubResource( 13 )
 radius = 0.03
 mid_height = 0.3
 radial_segments = 5
@@ -28,7 +28,7 @@ angular_damp = 1.0
 
 [node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.15, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 14 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
@@ -37,6 +37,7 @@ shape = SubResource( 3 )
 
 [node name="End" type="Position3D" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="RigidBody/End"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
